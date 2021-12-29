@@ -1,3 +1,4 @@
 import wikipedia as wiki
-wik=wiki.summary("dogs")
+year=int(input("enter year"))
+wik=wiki.summary(year)
 print(wik)
