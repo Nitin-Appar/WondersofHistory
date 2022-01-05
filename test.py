@@ -1,3 +1,6 @@
+
+#test file to check applications of new functions
+
 import datetime
 import random
 start_date = datetime.date( 1, 1)
