@@ -1,7 +1,7 @@
 import random
 
 
-def checkvalid():
+def isdatevalid():
     flag=2
     month=0
     day=0
@@ -37,5 +37,5 @@ def checkvalid():
     month=str(month).zfill(2)
     print("month:",month,"\nday:",day)
     date_dm=str(day)+" "+str(month)   
-checkvalid()
+
 
