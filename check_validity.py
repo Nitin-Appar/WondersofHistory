@@ -1,20 +1,17 @@
 import random
 
-
+#function randomdate creates a random date between the given constraints and checks its validity to return a fully random and valid date
 def randomdate():
-    flag=2
+    flag=1
     month=0
     day=0
     months_with_30_days=[4,6,9,11]
     months_with_31_days=[1,3,5,7,8,10,12]
     
-    while(flag==2):
-        month=random.randint(1,12)
-        if(month<1 or month>12):
-            continue
-        else:
-            flag=1
+    #creating a random month between 1 and 12
+    month=random.randint(1,12)
         
+    #createing a random day between the constraints 1 and 31 and checking its validity against the random month created
     while(flag==1):
         day=random.randint(1,31)
         if(month==2):
@@ -33,8 +30,10 @@ def randomdate():
             else:
                 flag=0
     
+    #adding a leading 0 to the final random day and month to create return a 2 digit number
     day=str(day).zfill(2)
     month=str(month).zfill(2)
+    
     print("month:",month,"\nday:",day)
     date_dm=str(day)+" "+str(month)   
 

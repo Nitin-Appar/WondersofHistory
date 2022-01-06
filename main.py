@@ -4,30 +4,35 @@ import datetime
 import random
 import about
 
+#menu
 print("________Wonders Of History________")
 print("\--------------------------------/")
 print("1.Events that happened on this day\n2.Enter custom date\n3.Random date\n4.Preset date example\n5.Info\n0. =Exit= ")
 choice=int(input())
+
+#users option to change ways to enter date
 while choice!=0:
     
-    
+    #using datetime module to retrieve current day and month values from the system
     if choice==1:
         today=datetime.datetime.now()
         day_today=today.day
         month_today=today.month
-        day_today=str(day_today).zfill(2)
+        day_today=str(day_today).zfill(2) #adding leading zeroes to the day and month values to create a two digit number
         month_today=str(month_today).zfill(2)
         date_dm=str(day_today)+" "+str(month_today)
         print("month:",month_today,"\nday:",day_today)
         data_retrieve.retrievefordm(date_dm)
         
-
+    #
     elif choice==2:
         flag=2
         month=0
         day=0
         months_with_31_days=[1,3,5,7,8,10,12]
         months_with_30_days=[4,6,9,11]
+        
+        #getting a month as input from user and checking its validity
         while(flag==2):
             month=int(input("enter month: "))
             if(month<1 or month>12):
@@ -35,7 +40,7 @@ while choice!=0:
             else:
                 flag=1
             
-    
+        #getting a day as input from user and checking its validity against the month value
         while(flag==1):
             day=int(input("enter day: "))
             if(month==2):
@@ -55,17 +60,20 @@ while choice!=0:
                     flag=0
 
         print("month:",month,"\nday:",day)
-        day=str(day).zfill(2)
+        day=str(day).zfill(2) 
         month=str(month).zfill(2)
         date_dm=str(day)+" "+str(month)
         data_retrieve.retrievefordm(date_dm)
     
 
     elif choice==3:
+        #calling randomdate module
         check_validity.randomdate()
     
 
     #elif choice==4:
+
+    
     elif choice==5:
         about.aboutus()
 
