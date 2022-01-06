@@ -1,7 +1,7 @@
 import random
 
 
-def isdatevalid():
+def randomdate():
     flag=2
     month=0
     day=0

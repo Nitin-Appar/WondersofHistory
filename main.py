@@ -2,10 +2,11 @@ import check_validity
 import data_retrieve
 import datetime
 import random
+import about
 
 print("________Wonders Of History________")
 print("\--------------------------------/")
-print("1.Events that happened on this day\n2.Enter custom date\n3.Random date\n4.Preset date example\n0.Exit")
+print("1.Events that happened on this day\n2.Enter custom date\n3.Random date\n4.Preset date example\n5.Info\n0. =Exit= ")
 choice=int(input())
 while choice!=0:
     
@@ -61,12 +62,15 @@ while choice!=0:
     
 
     elif choice==3:
-        check_validity.isdatevalid()
+        check_validity.randomdate()
     
 
     #elif choice==4:
+    elif choice==5:
+        about.aboutus()
+
     
-    print("1.Events that happened on this day\n2.Enter custom date\n3.Random date\n4.Preset date example\n0.Exit")
+    print("1.Events that happened on this day\n2.Enter custom date\n3.Random date\n4.Preset date example\n5.Info\n0. =Exit= ")
     choice=int(input())   
 
-print("Exiting.....")
+print("Exiting the program, thank you.")
