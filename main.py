@@ -2,14 +2,11 @@ import datetime
 import random
 import tkinter as tk
 
-
-
 import about
 import check_validity
 import data_retrieve
 
-month=0
-day=0
+
 def date_today():
     today = datetime.datetime.now()
     day = today.day
@@ -18,7 +15,7 @@ def date_today():
     day = str(day).zfill(2)
     month = str(month).zfill(2)
     print("the month is:", month, "\nthe day is:", day)
-    #data_retrieve.retrievefordm(month, day)
+    
     return month,day
 
 def date_input():
@@ -58,7 +55,7 @@ def date_input():
     print("the month is:", month, "\nthe day is:", day)
     day = str(day).zfill(2)
     month = str(month).zfill(2)
-    #data_retrieve.retrievefordm(month, day)
+    
     return month,day
 
 def date_random():
@@ -93,7 +90,7 @@ def date_random():
         # adding a leading 0 to the final random day and month to return a 2 digit number
     day = str(day).zfill(2)
     month = str(month).zfill(2)
-    #data_retrieve.retrievefordm(month, day)
+    
     return month,day
 
 def date_preset():
@@ -146,7 +143,7 @@ def text_change():
     btn.config(text=data_retrieve.eventlist[text])
 
 def text_print():
-    print("current colour number: ", text)
+    print("current event number: ", text)
 
 
 
@@ -154,10 +151,10 @@ def text_print():
 text=-1
 root = tk.Tk()
 
-btn = tk.Button(text="click to see colours", command=text_change, width=125, height=25)
+btn = tk.Button(text="click to see events", command=text_change, width=150, height=25)
 btn.grid(row=1, column=1)
 
-btn2 = tk.Button(text="console", command=text_print, width=10, height=3)
+btn2 = tk.Button(text="console", command=text_print, width=10, height=2)
 btn2.grid(row=2, column=1)
 
 root.mainloop()
