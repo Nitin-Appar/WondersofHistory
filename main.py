@@ -7,6 +7,8 @@ import data_retrieve
 
 months = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
           'August', 'September', 'October', 'November', 'December']
+ordinalday = lambda n: "%d%s" % (n,"tsnrhtdd"[(n//10%10!=1)*(n%10<4)*n%10::4])
+
 
 def date_today():
     today = datetime.datetime.now() # datetime module allows the program to retrieve today's day and month values from the system
@@ -15,7 +17,7 @@ def date_today():
     
     day = str(day).zfill(2) # adding leading zeroes to the day and month values to create a two digit number
     month = str(month).zfill(2)
-    print("the month is", months[int(month)-1], "and the day is", day)
+    print("it is the",ordinalday(int(day)),"of", months[int(month)-1])
     
     return month,day
 
@@ -52,10 +54,9 @@ def date_input():
             else:
                 flag = 0
 
-    
     day = str(day).zfill(2)
     month = str(month).zfill(2)
-    print("the month is", months[int(month)-1], "and the day is", day)
+    print("it is the",ordinalday(int(day)),"of", months[int(month)-1])
     
     return month,day
 
@@ -66,11 +67,8 @@ def date_random():
     day = 0
     months_with_30_days = [4, 6, 9, 11]
     months_with_31_days = [1, 3, 5, 7, 8, 10, 12]
-
-    # creating a random month between 1 and 12
     month = random.randint(1, 12)
 
-    # createing a random day between the constraints 1 and 31 and checking its validity against the random month created
     while(flag == 1):
         day = random.randint(1, 31)
         if(month == 2):
@@ -89,18 +87,18 @@ def date_random():
             else:
                 flag = 0
 
-        # adding a leading 0 to the final random day and month to return a 2 digit number
-    
     day = str(day).zfill(2)
     month = str(month).zfill(2)
-    print("the month is", months[int(month)-1], "and the day is", day)
+    print("it is the",ordinalday(int(day)),"of", months[int(month)-1])
     
     return month,day
+
 
 def date_preset():
     month=6
     day=2
-    print("the month is", months[int(month)-1], "and the day is", day)
+    print("it is the",ordinalday(int(day)),"of", months[int(month)-1])
+
     return month,day
 
 
@@ -110,9 +108,6 @@ print("________Wonders Of History________")
 print("\--------------------------------/")
 print("1.Events that happened on this day\n2.Enter custom date\n3.Random date\n4.Preset date example\n5.Info\n0. =Exit= ")
 choice = int(input())
-
-# users option to change ways to enter date
-# using datetime module to retrieve current day and month values from the system
 
 if choice == 1:
     m,d=date_today()
@@ -129,10 +124,7 @@ elif choice == 4:
 elif choice == 5:
     about.aboutus()
 
-
 data_retrieve.retrievefordm(m,d)
-
-
 
 def text_change():
     global text
@@ -150,9 +142,6 @@ def text_change():
 def text_print():
     print("current event number: ", text)
 
-
-
-    
 text=-1
 root = tk.Tk()
 
@@ -164,7 +153,7 @@ btn2.grid(row=2, column=1)
 
 root.mainloop()
 
+
 #print("1.Events that happened on this day\n2.Enter custom date\n3.Random date\n4.Preset date example\n5.Info\n0. =Exit= ")
 #choice = int(input())
-
 print("Exiting the program, thank you.")
