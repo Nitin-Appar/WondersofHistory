@@ -23,7 +23,7 @@ while choice != 0:
         # adding leading zeroes to the day and month values to create a two digit number
         day_today = str(day_today).zfill(2)
         month_today = str(month_today).zfill(2)
-        print("month:", month_today, "\nday:", day_today)
+        print("the month is:", month_today, "\nthe day is:", day_today)
         data_retrieve.retrievefordm(month_today, day_today)
 
     #
@@ -61,7 +61,7 @@ while choice != 0:
                 else:
                     flag = 0
 
-        print("month:", month, "\nday:", day)
+        print("the month is:", month, "\nthe day is:", day)
         day = str(day).zfill(2)
         month = str(month).zfill(2)
         data_retrieve.retrievefordm(month, day)
@@ -76,6 +76,7 @@ while choice != 0:
 
     elif choice == 4:
         data_retrieve.retrievefordm(6, 2)
+        print("the month is: 06, \nthe day is: 02")
 
     elif choice == 5:
         about.aboutus()
