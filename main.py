@@ -3,20 +3,22 @@ import random
 import tkinter as tk
 
 import about
-import check_validity
 import data_retrieve
 
+months = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+          'August', 'September', 'October', 'November', 'December']
 
 def date_today():
-    today = datetime.datetime.now()
+    today = datetime.datetime.now() # datetime module allows the program to retrieve today's day and month values from the system
     day = today.day
     month = today.month
-    # adding leading zeroes to the day and month values to create a two digit number
-    day = str(day).zfill(2)
+    
+    day = str(day).zfill(2) # adding leading zeroes to the day and month values to create a two digit number
     month = str(month).zfill(2)
-    print("the month is:", month, "\nthe day is:", day)
+    print("the month is", months[int(month)-1], "and the day is", day)
     
     return month,day
+
 
 def date_input():
     flag = 2
@@ -25,16 +27,14 @@ def date_input():
     months_with_31_days = [1, 3, 5, 7, 8, 10, 12]
     months_with_30_days = [4, 6, 9, 11]
 
-    # getting a month as input from user and checking its validity
-    while(flag == 2):
+    while(flag == 2): # getting a month as input from user and checking its validity
         month = int(input("enter month: "))
         if(month < 1 or month > 12):
             print("enter valid month...")
         else:
             flag = 1
 
-    # getting a day as input from user and checking its validity against the month value
-    while(flag == 1):
+    while(flag == 1): # getting a day as input from user and checking its validity against the month value
         day = int(input("enter day: "))
         if(month == 2):
             if(day > 28):
@@ -52,11 +52,13 @@ def date_input():
             else:
                 flag = 0
 
-    print("the month is:", month, "\nthe day is:", day)
+    
     day = str(day).zfill(2)
     month = str(month).zfill(2)
+    print("the month is", months[int(month)-1], "and the day is", day)
     
     return month,day
+
 
 def date_random():
     flag = 1
@@ -88,14 +90,17 @@ def date_random():
                 flag = 0
 
         # adding a leading 0 to the final random day and month to return a 2 digit number
+    
     day = str(day).zfill(2)
     month = str(month).zfill(2)
+    print("the month is", months[int(month)-1], "and the day is", day)
     
     return month,day
 
 def date_preset():
     month=6
     day=2
+    print("the month is", months[int(month)-1], "and the day is", day)
     return month,day
 
 
@@ -137,7 +142,7 @@ def text_change():
     if text >len(data_retrieve.eventlist):
         text = 0
 
-    print("changed to colour number: ", text)
+    print("changed to event number: ", text)
 
     
     btn.config(text=data_retrieve.eventlist[text])
