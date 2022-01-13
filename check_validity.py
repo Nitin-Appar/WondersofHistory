@@ -36,4 +36,4 @@ def randomdate():
     month = str(month).zfill(2)
     date_dm = str(day)+" "+str(month)
     print("the month is:", month, "\nthe day is:", day)
-    return date_dm
+    return day,month

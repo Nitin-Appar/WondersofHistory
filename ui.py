@@ -2,7 +2,11 @@ import tkinter as tk
 import data_retrieve
 
 
-data_retrieve.retrievefordm(4,12)
+
+
+
+
+
 def text_change():
     global text
 
@@ -21,11 +25,11 @@ def text_print():
 
 
 
-text = -1
-
+    
+text=-1
 root = tk.Tk()
 
-btn = tk.Button(text="click to see colours", command=text_change, width=100, height=30)
+btn = tk.Button(text="click to see colours", command=text_change, width=125, height=25)
 btn.grid(row=1, column=1)
 
 btn2 = tk.Button(text="console", command=text_print, width=10, height=3)
@@ -33,12 +37,3 @@ btn2.grid(row=2, column=1)
 
 root.mainloop()
 
-'''from tkinter import *
-import stringlist
-  
-root = Tk()
-for i in range(0,len(stringlist.strings)):
-    a = Label(root, text =stringlist.strings[i])
-a.pack()
-  
-root.mainloop()'''
