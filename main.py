@@ -1,11 +1,12 @@
 import datetime
 import random
 import tkinter as tk
+from xmlrpc.client import Boolean
 
 import about
 import data_retrieve
 
-months = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+calendar = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
           'August', 'September', 'October', 'November', 'December']
 ordinalday = lambda n: "%d%s" % (n,"tsnrhtdd"[(n//10%10!=1)*(n%10<4)*n%10::4])
 
@@ -17,7 +18,7 @@ def date_today():
     
     day = str(day).zfill(2) # adding leading zeroes to the day and month values to create a two digit number
     month = str(month).zfill(2)
-    print("it is the",ordinalday(int(day)),"of", months[int(month)-1])
+    print("it is the",ordinalday(int(day)),"of", calendar[int(month)-1])
     
     return month,day
 
@@ -56,7 +57,7 @@ def date_input():
 
     day = str(day).zfill(2)
     month = str(month).zfill(2)
-    print("it is the",ordinalday(int(day)),"of", months[int(month)-1])
+    print("it is the",ordinalday(int(day)),"of", calendar[int(month)-1])
     
     return month,day
 
@@ -89,7 +90,7 @@ def date_random():
 
     day = str(day).zfill(2)
     month = str(month).zfill(2)
-    print("it is the",ordinalday(int(day)),"of", months[int(month)-1])
+    print("it is the",ordinalday(int(day)),"of", calendar[int(month)-1])
     
     return month,day
 
@@ -97,13 +98,14 @@ def date_random():
 def date_preset():
     month=6
     day=2
-    print("it is the",ordinalday(int(day)),"of", months[int(month)-1])
+    print("it is the",ordinalday(int(day)),"of", calendar[int(month)-1])
 
     return month,day
 
 
 
 # menu
+
 print("________Wonders Of History________")
 print("\--------------------------------/")
 print("1.Events that happened on this day\n2.Enter custom date\n3.Random date\n4.Preset date example\n5.Info\n0. =Exit= ")
@@ -111,20 +113,20 @@ choice = int(input())
 
 if choice == 1:
     m,d=date_today()
-       
+    data_retrieve.retrievefordm(m,d)
 elif choice == 2:
     m,d=date_input()
-    
+    data_retrieve.retrievefordm(m,d)
 elif choice == 3:
     m,d=date_random()
-
+    data_retrieve.retrievefordm(m,d)
 elif choice == 4:
     m,d=date_preset()
-    
+    data_retrieve.retrievefordm(m,d)
 elif choice == 5:
     about.aboutus()
 
-data_retrieve.retrievefordm(m,d)
+
 
 def text_change():
     global text
@@ -153,7 +155,4 @@ btn2.grid(row=2, column=1)
 
 root.mainloop()
 
-
-#print("1.Events that happened on this day\n2.Enter custom date\n3.Random date\n4.Preset date example\n5.Info\n0. =Exit= ")
-#choice = int(input())
 print("Exiting the program, thank you.")
