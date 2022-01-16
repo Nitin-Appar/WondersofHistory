@@ -136,7 +136,6 @@ while(verify==0):
     elif choice == 0:
         break
         
-    
     while(flag_b==1):
         verify=int(input("are you sure you want to procede? (1-yes,0-no):- "))
         if(verify==0):
@@ -161,7 +160,7 @@ else:
         btn.config(text=data_retrieve.eventlist[increment])
         
     def text_print():
-        print("the year is:",data_retrieve.yearlist[increment])
+        print("this happened in the year",data_retrieve.yearlist[increment])
 
 
     increment=-1
