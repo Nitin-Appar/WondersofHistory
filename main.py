@@ -128,8 +128,10 @@ while(verify==0):
         data_retrieve.retrievefordm(m,d)
     elif choice == 5:
         about.aboutus()
+    
     elif choice == 0:
-        print("Exiting the program, thank you.")
+        break
+    
     flag_b=1
     while(flag_b==1):
         verify=int(input("are you sure you want to procede? (1-yes,0-no):- "))
@@ -142,31 +144,34 @@ while(verify==0):
             print("invalid value, please enter a valid confirmation value") 
 
 
-def text_change():
-    global text
-    text=text+1
-    if text>len(data_retrieve.eventlist):
-        text = 0
-    print("changed to event number: ", text)
+if(choice==0):
+    print("Exiting the program, thank you.")
+else:
+    def text_change():
+        global text
+        text=text+1
+        if text>len(data_retrieve.eventlist):
+            text = 0
+        print("changed to event number: ", text)
 
-    btn.config(text=data_retrieve.eventlist[text])
-    
-def text_print():
-    print("the year is:",data_retrieve.yearlist[text])
-
-
-text=-1
-root = tk.Tk()
-
-btn = tk.Button(text="Click to see events", command=text_change, width=150, height=25)
-btn.grid(row=1, column=1)
-
-btn2 = tk.Button(text="year", command=text_print, width=10, height=2)
-btn2.grid(row=2, column=1)
-
-root.mainloop()
+        btn.config(text=data_retrieve.eventlist[text])
+        
+    def text_print():
+        print("the year is:",data_retrieve.yearlist[text])
 
 
-print("Exiting the program, thank you.")
+    text=-1
+    root = tk.Tk()
+
+    btn = tk.Button(text="Click to see events", command=text_change, width=150, height=25)
+    btn.grid(row=1, column=1)
+
+    btn2 = tk.Button(text="year", command=text_print, width=10, height=2)
+    btn2.grid(row=2, column=1)
+
+    root.mainloop()
+
+
+    print("Exiting the program, thank you.")
 
 
