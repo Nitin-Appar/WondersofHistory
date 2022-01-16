@@ -117,22 +117,26 @@ while(verify==0):
     if choice == 1:
         m,d=date_today()
         data_retrieve.retrievefordm(m,d) #calling module data_retrieve to get the events from the day and month values given to it
+        flag_b=1
     elif choice == 2:
         m,d=date_input()
         data_retrieve.retrievefordm(m,d)
+        flag_b=1
     elif choice == 3:
         m,d=date_random()
         data_retrieve.retrievefordm(m,d)
+        flag_b=1
     elif choice == 4:
         m,d=date_preset()
         data_retrieve.retrievefordm(m,d)
+        flag_b=1
     elif choice == 5:
         about.aboutus()
-    
+        flag_b=0
     elif choice == 0:
         break
+        
     
-    flag_b=1
     while(flag_b==1):
         verify=int(input("are you sure you want to procede? (1-yes,0-no):- "))
         if(verify==0):
@@ -148,19 +152,19 @@ if(choice==0):
     print("Exiting the program, thank you.")
 else:
     def text_change():
-        global text
-        text=text+1
-        if text>len(data_retrieve.eventlist):
-            text = 0
-        print("changed to event number: ", text)
+        global increment
+        increment=increment+1
+        if increment>len(data_retrieve.eventlist):
+            increment = 0
+        print("changed to event number: ", increment)
 
-        btn.config(text=data_retrieve.eventlist[text])
+        btn.config(text=data_retrieve.eventlist[increment])
         
     def text_print():
-        print("the year is:",data_retrieve.yearlist[text])
+        print("the year is:",data_retrieve.yearlist[increment])
 
 
-    text=-1
+    increment=-1
     root = tk.Tk()
 
     btn = tk.Button(text="Click to see events", command=text_change, width=150, height=25)
