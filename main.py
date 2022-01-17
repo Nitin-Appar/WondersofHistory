@@ -155,12 +155,12 @@ else:
         increment=increment+1
         if increment>len(data_retrieve.eventlist):
             increment = 0
-        print("changed to event number: ", increment)
+        print("this event happened in the year",data_retrieve.yearlist[increment])
 
         btn.config(text=data_retrieve.eventlist[increment])
         
     def text_print():
-        print("this happened in the year",data_retrieve.yearlist[increment])
+        print("this is event number:",increment+1)
 
 
     increment=-1
@@ -169,7 +169,7 @@ else:
     btn = tk.Button(text="Click to see events", command=text_change, width=150, height=25)
     btn.grid(row=1, column=1)
 
-    btn2 = tk.Button(text="year", command=text_print, width=10, height=2)
+    btn2 = tk.Button(text="console", command=text_print, width=10, height=2)
     btn2.grid(row=2, column=1)
 
     root.mainloop()
